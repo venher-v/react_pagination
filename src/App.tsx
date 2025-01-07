@@ -11,11 +11,9 @@ export const App: React.FC = () => {
   const total = items.length;
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(5);
-
   const startItem = (page - 1) * perPage;
   const lastItem = startItem + perPage > total ? total : startItem + perPage;
   const currentItems = items.slice(startItem, lastItem);
-  // console.log(currentItems);
 
   function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
     setPerPage(+event.target.value);
@@ -59,8 +57,8 @@ export const App: React.FC = () => {
       />
 
       <ul>
-        {currentItems.map((item, i) => (
-          <li data-cy="item" key={i}>
+        {currentItems.map((item) => (
+          <li data-cy="item" key={item}>
             {item}
           </li>
         ))}
